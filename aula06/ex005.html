@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formatando Moeda</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      color: #116ed8;
+      background-color: #d8e9f7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    
+    .card {
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+    
+    .valor {
+      font-size: 32px;
+      font-weight: bold;
+      color: #0a4c8c;
+      margin: 16px 0;
+    }
+    
+    input {
+      padding: 8px 12px;
+      font-size: 18px;
+      border: 2px solid #116ed8;
+      border-radius: 6px;
+      text-align: center;
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Conversor de Moeda BRL</h1>
+    <p>Digite um valor:</p>
+    <input type="number" id="inputValor" value="1517.58" step="0.01">
+    <div class="valor" id="resultado"></div>
+  </div>
+
+  <script>
+    const inputValor = document.getElementById('inputValor');
+    const resultado = document.getElementById('resultado');
+    
+    // Função que formata o número pra moeda BRL
+    function formatarMoeda(valor) {
+      return valor.toLocaleString('pt-BR', { 
+        style: 'currency', currency: 'BRL'});
+    }
+    
+    // Função que atualiza a tela
+    function atualizarTela() {
+      const numero = Number(inputValor.value); // Converte pra número
+      
+      // Valida se é um número válido
+      if (isNaN(numero)) {
+        resultado.textContent = 'Digite um número válido';
+        return;
+      }
+      
+      resultado.textContent = formatarMoeda(numero);
+    }
+    
+    // Roda quando digita no input
+    inputValor.addEventListener('input', atualizarTela);
+    
+    // Roda uma vez quando carrega a página
+    atualizarTela();
+  </script>
+</body>
+</html>

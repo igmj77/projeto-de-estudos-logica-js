@@ -16,7 +16,7 @@ for (var c = 1;c <= 4;c++) {
 console.log('FIM')
 */
 
-/*********************************************************************
+/********************************************************************/
 
 /*let num = [7, 9, 3, 5, 1]
 
@@ -49,6 +49,7 @@ for (let pos in valores) {
     console.log(`a posição ${pos} tem o valor ${valores[pos]}`)
 }*/
 
+/*
 let num = [7, 9, 3, 5, 1]
     num.push(0)
     num.sort()
@@ -61,3 +62,21 @@ let num = [7, 9, 3, 5, 1]
         } else {
             console.log(`o valor está na posição ${pos}`)
         }
+*/
+
+/*********************************************************************/
+
+/*let amigo = {nome: 'José', sexo: 'm', peso: '85.4'}
+console.log(typeof amigo)*/
+
+let amigo = {nome: 'José',
+sexo: 'M',
+peso: 85.9,
+engordar(p=0){
+    console.log('Engordou!')
+    this.peso += p
+}}
+amigo.engordar(7.1)
+console.log(`${amigo.nome} agora está pesando, ${amigo.peso} Kg!`)
+
+/*console.log(amigo.nome)*/ 
